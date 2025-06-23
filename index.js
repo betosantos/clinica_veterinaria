@@ -1,10 +1,12 @@
 const express = require("express");
 const dotenv = require('dotenv');
 const cors = require('cors');
-const conectarDB = require('./config/db');
+const initDB = require('./config/initDB');
 
-dotenv.config();        // Carrega variáveis do .env
-conectarDB();           // Conecta ao banco de dados
+
+dotenv.config();        
+initDB(); // inicializa a conexão e sincronização do banco
+
 
 const app = express();
 app.use(express.json());

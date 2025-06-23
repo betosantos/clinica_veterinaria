@@ -15,7 +15,7 @@ router.post("/", async (req, res) => {
 
 // Listar usuários
 router.get("/", async (req, res) => {
-  let usuarios = await Usuario.find();    
+  let usuarios = await Usuario.findAll();    
   res.json(usuarios);    
 });
 

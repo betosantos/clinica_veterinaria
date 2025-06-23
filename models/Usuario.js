@@ -1,20 +1,24 @@
-const mongoose = require('mongoose');
+const { DataTypes } = require('sequelize');
+const sequelize = require('../config/db'); // Importa a conexão com o banco de dados
 
-// Define o schema
-const usuarioSchema = new mongoose.Schema({
+
+const Usuario = sequelize.define('Usuario', {
   nome: {
-    type: String,
-    required: true,
-    trim: true
+    type: DataTypes.STRING,
+    allowNull: false
   },
   email: {
-    type: String,
-    required: true,
-    unique: true,
-    lowercase: true
+    type: DataTypes.STRING,
+    allowNull: false,
+    unique: true
+  },
+  idade: {
+    type: DataTypes.INTEGER
   }
-
+}, {
+  tableName: 'usuarios',
+  timestamps: false
 });
 
-// Exporta o model
-module.exports = mongoose.model('Usuario', usuarioSchema);
+
+module.exports = Usuario;
