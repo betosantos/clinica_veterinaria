@@ -1,6 +1,7 @@
 # Ignorar a pasta modules
 modules/
 
+
 # Outras regras comuns
 node_modules/
 .env
